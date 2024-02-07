@@ -17,7 +17,7 @@ export function FormCreateContact() {
       <Drawer>
         <div className="border-none">
           <DrawerTrigger asChild>
-            <Button className="w-[200px] text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 justify-center flex text-center text-white cursor-pointer rounded-lg max-w-[400px]">
+            <Button className="w-[200px] text-md py-6 mt-6 hidden group-hover:flex group-hover:animate-hover items-center trasintion ease-in-out delay-1000 bg-gradient-to-r from-purple-400   to-purple-600 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
               começar
             </Button>
           </DrawerTrigger>

@@ -66,10 +66,19 @@ const config = {
           '50%,100%' : {
             transform: 'rotate(-90deg)'
           },
+        },
+        'hover' : {
+          '0%' : {
+            opacity: '0'
+          },
+          '100%' : {
+            opacity: '1'
+          },
         }
       },
       animation: {
-       'girar': 'girar 2s both'
+       'girar': 'girar 2s both',
+       'hover': 'hover 7s both'
       },
     },
   },

@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 const HeroContent = () => {
   return (
-    <div className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] ">
+    <div className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] group">
       <div className="h-full w-full flex flex-col gap-5  mx-auto text-center items-center justify-center group cursor-pointer">
         <div className="py-[8px] px-[7px] opacity-[0.9] flex gap-2 trasintion ease-in-out duration-1000 group-hover:animate-girar cursor-pointer">
           <div className="flex items-center justify-center gap-3 max-h-[243px]">
