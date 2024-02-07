@@ -6,6 +6,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -48,27 +49,29 @@ export function HandleForm() {
             <Input type="number" id="username" placeholder="(**) 9****-****" className="col-span-3" />
           </div>
         </div>
-        <Button
-          className="bg-green-500 hover:bg-green-400"
-          onClick={() => {
-            toast({
-              variant: 'default',
-              title: "Sucesso🎉✔",
-              description: "Em breve entraremos em contato atraves do Whatsapp informado ",
-              action: (
+        <DialogClose asChild>
+          <Button
+            className="bg-green-500 hover:bg-green-400"
+            onClick={() => {
+              toast({
+                variant: 'default',
+                title: "Sucesso🎉✔",
+                description: "Em breve entraremos em contato atraves do Whatsapp informado ",
+                action: (
 
-                <ToastAction altText="Goto schedule to undo" className="bg-green-500 text-white hover:bg-green-400 gap-2 flex items-center justify-center" rel='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6'>
-                  <p >Siga-nos no instagram</p>
-                  <Instagram className="w-4 h-4" />
-                </ToastAction>
+                  <ToastAction altText="Goto schedule to undo" className="bg-green-500 text-white hover:bg-green-400 gap-2 flex items-center justify-center" rel='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6'>
+                    <p >Siga-nos no instagram</p>
+                    <Instagram className="w-4 h-4" />
+                  </ToastAction>
 
-              ),
-            })
-          }
-          }
-        >
-          Confirmar ✔
-        </Button>
+                ),
+              })
+            }
+            }
+          >
+            Confirmar ✔
+          </Button>
+        </DialogClose>
       </DialogContent>
     </Dialog>
   )
