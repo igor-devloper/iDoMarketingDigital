@@ -24,7 +24,7 @@ export const Head = () => {
             <Image
               src="/i.png"
               alt="logo iDo"
-              className="mt-7 animate-slideI "
+              className="mt-7"
               width={13.5}
               height={243}
             />
@@ -35,11 +35,10 @@ export const Head = () => {
               alt="logo iDo"
               width={200}
               height={243}
-              className="animate-slideDo"
             />
           </motion.div>
         </motion.div>
-        <motion.div className="flex items-center justify-center gap-3 max-h-[243px] delay-1000 ease-in animate-hover">
+        <motion.div className="flex items-center justify-center gap-3 max-h-[243px] transition-transform ease-in delay-1000 animate-hover">
           <Image
             src="/caixaTexto.png"
             alt="logo iDo"

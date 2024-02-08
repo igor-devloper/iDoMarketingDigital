@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
-        <main className="relative flex min-h-screen flex-col space-y-24">
+        <main className="relative flex min-h-screen flex-col space-y-20">
           <StarsCanvas />
           {children}
           <Footer />

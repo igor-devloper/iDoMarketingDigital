@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Twitter } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 
@@ -10,21 +11,26 @@ const Footer = () => {
 
                     <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                            <Instagram  className="w-4 h-4"/>
-                            <span className="text-[15px] ml-[6px]">Instagram</span>
+                            <Instagram className="w-4 h-4" />
+                            <Link href="https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6" target="_blank">
+                                <span className="text-[15px] ml-[6px]">Instagram</span>
+                            </Link>
                         </p>
-                        <p className="flex flex-row items-center justify-center my-[15px] cursor-pointer">
-                            <Twitter  className="w-4 h-4"/>
-                            <span className="text-[15px] ml-[6px]">Twitter</span>
-                        </p>
+                        <Link href="https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6" className="cursor-pointer" target="_blank">
+                            <p className="flex flex-row items-center justify-center my-[15px]">
+                                <Twitter className="w-4 h-4" />
+                                <span className="text-[15px] ml-[6px]">Twitter</span>
+                            </p>
+                        </Link>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                            <Linkedin  className="w-4 h-4"  />
-                            <span className="text-[15px] ml-[6px]">Linkedin</span>
+                            <Linkedin className="w-4 h-4" /><Link href="https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6" target="_blank">
+                                <span className="text-[15px] ml-[6px]">Linkedin</span>
+                            </Link>
                         </p>
                     </div>
                 </div>
                 <div className="mb-[20px] text-[15px] text-center">
-                    &copy; WebChain Dev 2023 Inc. All rights reserved
+                    &copy; iDo Marketing Digital 2024 Inc. All rights reserved
                 </div>
             </div>
         </div>

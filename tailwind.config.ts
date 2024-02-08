@@ -90,12 +90,6 @@ const config = {
           '45%':{
             opacity: '0',
           },
-          '50%':{
-            opacity: '0',
-          },
-          '60%':{
-            opacity: '0',
-          },
           '100%' : {
             opacity: '1',
           },
@@ -103,7 +97,7 @@ const config = {
       },
       animation: {
        'girar': 'girar 5s both',
-       'hover': 'hover 8s ease-in',
+       'hover': 'hover 8s both',
       },
     },
   },

@@ -68,7 +68,7 @@ export function HandleForm() {
           <DialogClose asChild>
             <Button
               disabled={!active}
-              className="bg-green-500 hover:bg-green-400"
+              className="bg-green-500 hover:bg-green-400 disabled:cursor-wait"
               onClick={() => {
                 toast({
                   variant: 'default',
@@ -76,8 +76,8 @@ export function HandleForm() {
                   description: "Em breve entraremos em contato atraves do Whatsapp informado ",
                   action: (
 
-                    <Link href='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full">
-                      <ToastAction altText="Goto schedule to undo" rel='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full bg-green-500 text-white hover:bg-green-400 gap-2 flex items-center justify-center">
+                    <Link href='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full" target="_blank">
+                      <ToastAction altText="Goto schedule to undo" className="w-full bg-green-500 text-white hover:bg-green-400 gap-2 flex items-center justify-center">
                         <p className="text-xs">Siga-nos no instagram</p>
                         <Instagram className="w-6 h-6" />
                       </ToastAction>
