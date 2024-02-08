@@ -42,7 +42,7 @@ export const Head = () => {
           <Image
             src="/caixaTexto.png"
             alt="logo iDo"
-            className="absolute mb-[500px] ml-80"
+            className="absolute mb-[500px] ml-[230px]"
             width={140}
             height={243}
           />
