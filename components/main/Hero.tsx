@@ -1,12 +1,11 @@
 import React from "react";
 import { Head } from "../sub/head";
 
-const Hero = () => {
+export function Hero(){
   return (
-    <div className="relative flex flex-col w-full h-screen group:" id="about-me">
+    <div className="relative flex flex-col w-full h-screen group:">
       <Head />
     </div>
   );
 };
 
-export default Hero;
