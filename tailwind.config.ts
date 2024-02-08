@@ -60,25 +60,50 @@ const config = {
       },
       keyframes: {
         'girar' : {
-          '0%, 50%' : {
+          '0%' : {
             transform: 'rotate(0deg)'
           },
-          '50%,100%' : {
-            transform: 'rotate(-90deg)'
+          '20%':{
+            transform: 'rotate(0)',
+          },
+          '40%':{
+            transform: 'rotate(0)',
+          },
+          '45%':{
+            transform: 'rotate(0)',
+          },
+          '100%' : {
+            transform: 'rotate(-90deg)',
+            marginRight: '3.5rem'
           },
         },
         'hover' : {
           '0%' : {
             opacity: '0'
           },
+          '20%':{
+            opacity: '0',
+          },
+          '40%':{
+            opacity: '0',
+          },
+          '45%':{
+            opacity: '0',
+          },
+          '50%':{
+            opacity: '0',
+          },
+          '60%':{
+            opacity: '0',
+          },
           '100%' : {
-            opacity: '1'
+            opacity: '1',
           },
         }
       },
       animation: {
-       'girar': 'girar 2s both',
-       'hover': 'hover 7s both'
+       'girar': 'girar 5s both',
+       'hover': 'hover 8s ease-in',
       },
     },
   },

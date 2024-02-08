@@ -1,13 +1,18 @@
 "use client";
 
-
-import { Megaphone, PanelsTopLeft, ClipboardPenLine } from "lucide-react";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/utils/motion";
+import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose } from "../ui/drawer";
 import { ProductAds } from "./product-ads";
 import { HandleForm } from "./handle-form";
-import { ToastAction } from "@radix-ui/react-toast";
 import { useToast } from "../ui/use-toast";
+import { ProductSite } from "./product-site";
+import { ProductCreation } from "./product-creation";
 
 export function FormCreateContact() {
 
@@ -15,26 +20,30 @@ export function FormCreateContact() {
   return (
     <form>
       <Drawer>
-        <div className="border-none">
-          <DrawerTrigger asChild>
-            <Button className="w-[200px] text-md py-6 mt-6 hidden group-hover:flex group-hover:animate-hover items-center trasintion ease-in-out delay-1000 bg-gradient-to-r from-purple-400   to-purple-600 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
-              começar
-            </Button>
-          </DrawerTrigger>
+        <motion.div className="border-none">
+          <motion.div variants={slideInFromRight(7)}>
+            <DrawerTrigger asChild>
+              <Button className="w-[200px] text-md py-6 mt-6 items-center trasintion ease-in-out delay-1000 bg-gradient-to-r from-purple-400   to-purple-600 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
+                começar
+              </Button>
+            </DrawerTrigger>
+          </motion.div>
           <DrawerContent className="bg-black">
-            <div className="mx-auto w-full max-w-md">
+            <motion.div className="mx-auto w-full max-w-md">
               <DrawerHeader className="text-white">
-                <DrawerTitle>Selecione a categoria</DrawerTitle>
-                <DrawerDescription>Selecione a categoria e descubra nossos serviços</DrawerDescription>
+                <DrawerTitle>Brefing (Form)</DrawerTitle>
+                <DrawerDescription>Selecione o serviço desejado</DrawerDescription>
               </DrawerHeader>
-              <div className="p-4 pb-0">
-                <div className="flex items-center justify-center space-x-2">
+              <motion.div className="p-4 pb-0">
+                <motion.div className="flex items-center justify-center space-x-2">
 
-                </div>
-                <div className="mt-3 h-[130px] text-white flex flex-col gap-4 max-w-xl m-10">
+                </motion.div>
+                <motion.div className="mt-3 h-[130px] text-white flex flex-col gap-2 max-w-xl m-14">
                   <ProductAds />
-                </div>
-              </div>
+                  <ProductSite />
+                  <ProductCreation />
+                </motion.div>
+              </motion.div>
               <DrawerFooter>
                 <HandleForm />
                 <DrawerClose asChild>
@@ -42,9 +51,9 @@ export function FormCreateContact() {
                     variant="outline">Cancel</Button>
                 </DrawerClose>
               </DrawerFooter>
-            </div>
+            </motion.div>
           </DrawerContent>
-        </div>
+        </motion.div>
       </Drawer>
     </form>
   )

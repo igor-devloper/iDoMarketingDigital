@@ -9,31 +9,24 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Instagram, Megaphone } from "lucide-react";
-import Link from "next/link";
+import { Blocks } from "lucide-react";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 
-export function ProductAds() {
+export function ProductSite() {
   return (
     <>
       <DropdownMenu >
         <DropdownMenuTrigger asChild>
           <Button className="w-full gap-2 text-md py-4 mt-4 text-sm items-center bg-gradient-to-r from-purple-400  to-purple-600 justify-center flex text-center cursor-pointera rounded-lg">
-            <Megaphone />
-            Anuncio
+            <Blocks />
+            Site
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-full px-5 pb-5 mb-4 flex flex-col items-center justify-center bg-black text-white font-bold space-y-3">
-          <DropdownMenuLabel className="flex items-center justify-center p-4 ">Anuncio</DropdownMenuLabel>
+          <DropdownMenuLabel className="flex items-center justify-center p-4 text-xl">Site</DropdownMenuLabel>
           <DropdownMenuGroup>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -41,27 +34,20 @@ export function ProductAds() {
                   className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                   href="/"
                 >
-                  <Image
-                    src='/suaempresa.webp'
-                    alt="sua empresa"
-                    className="w-full h-full"
-                    width={240}
-                    height={100}
-                  />
                 </a>
               </li>
               <DropdownMenuItem>
-                <ListItem title="Google Ads">
+                <ListItem title="">
                   é a solução de publicidade on-line do Google. Com ele, é possível criar anúncios on-line para alcançar os usuários exatamente quando eles estiverem interessados nos produtos e serviços que você oferece.
                 </ListItem>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <ListItem title="Shoope Ads">
+                <ListItem title="">
                   é uma ferramenta de anúncios pagos que permite que você anuncie seus produtos ou sua loja dentro da Shopee
                 </ListItem>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <ListItem title="Meta Ads">
+                <ListItem title="">
                   é uma ferramenta que te permite divulgar seus produtos no Instagram e Facebook
                 </ListItem>
               </DropdownMenuItem>
