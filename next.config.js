@@ -1,11 +1,4 @@
-module.exports = {
- 
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false
-    }
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
 
-    return config
-  },
-  
-}
+module.exports = nextConfig
