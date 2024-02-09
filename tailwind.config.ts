@@ -113,7 +113,7 @@ const config = {
         }
       },
       animation: {
-       'girar': 'girar 5s both',
+       'girar': 'girar 4s both',
        'hover': 'hover 8s both',
        'hoverBalao': 'hoverBalao 9s both'
       },

@@ -68,8 +68,8 @@ export function FormCreateContact() {
         </motion.div>
         <DrawerContent className="bg-black">
           <motion.div className="mx-auto w-full max-w-md">
-            <DrawerHeader className="text-white">
-              <DrawerTitle>Brefing (Form)</DrawerTitle>
+            <DrawerHeader className="text-white leading-4">
+              <DrawerTitle>BRIEFING (formulario)</DrawerTitle>
               <DrawerDescription>Selecione o serviço desejado</DrawerDescription>
             </DrawerHeader>
             <motion.div className="p-4 pb-0">
