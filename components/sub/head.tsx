@@ -19,8 +19,8 @@ export const Head = () => {
       className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
     >
       <motion.div className="h-full w-full flex flex-col gap-5  mx-auto text-center items-center justify-center">
-        <motion.div className="py-[8px] px-[7px] opacity-[0.9] flex gap-2 transition-transform ease-in delay-1000 animate-girar cursor-pointer">
-          <motion.div className="flex items-center justify-center gap-3 max-h-[243px]" variants={slideInFromLeft(0.1)}>
+        <motion.div className="py-[8px] px-[7px] opacity-[0.9] flex gap-2 transition-transform ease-in animate-girar cursor-pointer">
+          <motion.div className="flex items-center justify-center gap-3 max-h-[243px]" variants={slideInFromLeft(0)}>
             <Image
               src="/i.png"
               alt="logo iDo"
@@ -29,7 +29,7 @@ export const Head = () => {
               height={243}
             />
           </motion.div>
-          <motion.div variants={slideInFromRight(0.2)}>
+          <motion.div variants={slideInFromRight(0.1)}>
             <Image
               src="/DO in png.png"
               alt="logo iDo"
@@ -42,14 +42,15 @@ export const Head = () => {
           <Image
             src="/caixaTexto.png"
             alt="logo iDo"
-            className="absolute mb-[500px] ml-[230px]"
-            width={140}
+            className="absolute mb-[550px] ml-[230px] md:ml-[330px]"
+            width={200}
             height={243}
           />
         </motion.div>
-        <motion.div variants={slideInFromTop}>
+        <motion.div>
           <Image
             src="/descri in png.png"
+            className="animate-hoverBalao"
             alt="logo iDo"
             width={300}
             height={243}

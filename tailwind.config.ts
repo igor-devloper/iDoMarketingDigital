@@ -93,11 +93,29 @@ const config = {
           '100%' : {
             opacity: '1',
           },
+        },
+        'hoverBalao' : {
+          '0%' : {
+            opacity: '0'
+          },
+          '20%':{
+            opacity: '0',
+          },
+          '40%':{
+            opacity: '0',
+          },
+          '45%':{
+            opacity: '0',
+          },
+          '100%' : {
+            opacity: '1',
+          },
         }
       },
       animation: {
        'girar': 'girar 5s both',
        'hover': 'hover 8s both',
+       'hoverBalao': 'hoverBalao 9s both'
       },
     },
   },
