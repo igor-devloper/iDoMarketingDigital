@@ -23,6 +23,7 @@ import Link from "next/link";
 import { useForm } from 'react-hook-form'
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose } from "../ui/drawer";
 import { Services } from "./services";
+import { useState } from "react";
 
 
 type Inputs = {
@@ -46,7 +47,7 @@ export function FormCreateContact() {
       title: "Sucesso🎉✔",
       description: "Em breve entraremos em contato atraves do Whatsapp informado ",
       action: (
-          <Link href='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full" target="_blank">
+        <Link href='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full" target="_blank">
           <ToastAction altText="Goto schedule to undo" className="w-full bg-green-500 text-white hover:bg-green-400 gap-2 flex items-center justify-center">
             <p className="text-xs">Siga-nos no instagram</p>
             <Instagram className="w-6 h-6" />
@@ -109,7 +110,7 @@ export function FormCreateContact() {
                       </div>
                     </div>
                     <DialogClose asChild>
-                      <input type="submit" className="p-2 rounded-md w-full bg-green-500 hover:bg-green-400 disabled:cursor-wait" />
+                      <input type="submit" className="p-2 rounded-md w-full bg-green-500 hover:bg-green-400 disabled:cursor-wait">Confirmar</input>
                     </DialogClose>
                   </form>
                 </DialogContent>
