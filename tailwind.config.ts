@@ -110,12 +110,50 @@ const config = {
           '100%' : {
             opacity: '1',
           },
-        }
+        },
+        'typing1': {
+          from: {
+            width: '0'
+          }, to: {
+            width: '21ch',
+          } 
+        },
+        'typing2': {
+          from: {
+            width: '0'
+          }, to: {
+            width: '19ch',
+          } 
+        },
+
+        'typing3': {
+          from: {
+            width: '0'
+          }, to: {
+            width: '21ch',
+          } 
+        },
+        'typing4': {
+          from: {
+            width: '0'
+          }, to: {
+            width: '11ch',
+          } 
+        },
+        'blinking': {
+          '50%': {
+            borderColor: 'transparent'
+          }
+        },
       },
       animation: {
        'girar': 'girar 4s both',
        'hover': 'hover 8s both',
-       'hoverBalao': 'hoverBalao 9s both'
+       'hoverBalao': 'hoverBalao 9s both',
+       'typing1': 'typing1 4s steps(21)',
+       'typing2': 'typing2 4s steps(19)',
+       'typing3': 'typing3 4s steps(21)',
+       'typing4': 'typing4 4s steps(11), blinking 4s infinite steps-end alternate',
       },
     },
   },
