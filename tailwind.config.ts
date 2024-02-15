@@ -59,6 +59,16 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        'moveInBottom' :{
+          '0%':{
+              opacity: '0',
+              transform: 'translateY(30px)',
+          }, 
+          '100%':{
+              opacity: '1',
+              transform: 'translateY(0px)'
+          }
+        },
         'girar' : {
           '0%' : {
             transform: 'rotate(0deg)'
@@ -69,7 +79,7 @@ const config = {
           '40%':{
             transform: 'rotate(0)',
           },
-          '45%':{
+          '50%':{
             transform: 'rotate(0)',
           },
           '100%' : {
@@ -147,13 +157,14 @@ const config = {
         },
       },
       animation: {
-       'girar': 'girar 4s both',
+       'girar': 'girar 5s both',
        'hover': 'hover 8s both',
        'hoverBalao': 'hoverBalao 9s both',
        'typing1': 'typing1 4s steps(21)',
        'typing2': 'typing2 4s steps(19)',
        'typing3': 'typing3 4s steps(21)',
        'typing4': 'typing4 4s steps(11), blinking 4s infinite steps-end alternate',
+       'moveInBottom': 'moveInBottom 5s ease-out'
       },
     },
   },

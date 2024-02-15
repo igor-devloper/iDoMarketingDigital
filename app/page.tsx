@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import Hero from '../components/main/hero';
 
 export default function Home() {
