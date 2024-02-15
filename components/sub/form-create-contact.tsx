@@ -64,12 +64,12 @@ export function FormCreateContact() {
               começar
             </Button> */}
             <a href="#_" className="relative inline-flex items-center justify-center p-4 px-5 py-3 w-[200px] uppercase overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
-              <span class="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease"></span>
-              <span class="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
-                <span class="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
-                <span class="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
+              <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease"></span>
+              <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
+                <span className="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
+                <span className="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
               </span>
-              <span class="relative text-white">começar</span>
+              <span className="relative text-white">começar</span>
             </a>
           </DrawerTrigger>
           <div className="animate-bounce p-4 mt-32  rounded-full border items-center border-gray-500 bg-gray-800 hover:text-gradient-to-r hover:from-purple-400   hover:to-purple-600">
