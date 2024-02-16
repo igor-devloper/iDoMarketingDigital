@@ -8,7 +8,7 @@ import { useEffect } from "react";
 // import { FacebookPixel } from "../components/facebook-pixel";
 import Script from "next/script";
 import { Head } from "next/document";
-import { AppContext } from "@/C";
+import { AppContext } from "@/context";
 // import { FB_PIXEL_ID } from "../lib/fbpixel";
 
 const inter = Inter({ subsets: ["latin"] });

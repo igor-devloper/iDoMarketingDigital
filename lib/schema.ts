@@ -2,9 +2,18 @@ import z from 'zod'
 
 
 export const ServiceSchema = z.object({
-  serviceAds: z.string().nonempty('Escolha algum Serviço'),
-  serviceCreate: z.string().nonempty('Escolha algum Serviço'),
-  serviceSite: z.string().nonempty('Escolha algum Serviço'),
+  servicesAds:z.array(z.string()).refine((value) => value.some((item) => item), {
+    message: "Você deve selecionar pelo menos um item",
+  }),
+
+  // servicesCreate: z.array(z.string()).refine((value) => value.some((item) => item), {
+  //   message: "Você deve selecionar pelo menos um item",
+  // }),
+
+  // servicesSite: z.array(z.string()).refine((value) => value.some((item) => item), {
+  //   message: "Você deve selecionar pelo menos um item",
+  // }),
+
 })
 
 export const InfosSchema = z.object({

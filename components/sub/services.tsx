@@ -43,7 +43,7 @@ import { useEffect, useState } from "react"
 import { DialogClose } from "@radix-ui/react-dialog"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
-import { useNavMobileContext } from "@/C/nav-mobile-context"
+import { useNavMobileContext } from "@/context/nav-mobile-context"
 // import * as fbq from "@/lib/fbpixel";
 
 
@@ -56,20 +56,9 @@ export function Services() {
   const [Visible, setVisible] = useState(false)
   const [open, setOpen] = useState(false)
   const form = useForm<z.infer<typeof ServiceSchema>>({
-    resolver: zodResolver(ServiceSchema),
+    resolver: zodResolver(ServiceSchema)
   })
-  useEffect(() => {
-    function positionScroll() {
-      if (window.scrollY < 300) {
-        setVisible(true)
-      } else {
-        setVisible(false)
-      }
-
-    }
-
-    window.addEventListener('scroll', positionScroll)
-  }, [])
+  
   const { isVisible, setIsVisible } = useNavMobileContext()
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
     // await fbq.event("contact", {servicesAds, servicesCreate, servicesSite});
@@ -77,7 +66,8 @@ export function Services() {
     await toast({
       variant: 'sucesso',
       title: "Sucesso🎉✔",
-      description: `${data.serviceSite}, ${data.serviceAds}, ${data.serviceCreate}. Esses foram o serviços selecionados`,
+      // description: `${data.servicesSite}, ${data.servicesAds}, ${data.servicesCreate}. Esses foram o serviços selecionados`,
+      description: `${data.servicesAds}`,
       action: (
         <Link href='https://www.instagram.com/idomktdigital?igsh=YmN5Z25ja3VxY2F6' className="w-full p-2 rounded-md border-spacing-1 bg-white" target="_blank">
           <ToastAction altText="Instagram" className="flex gap-2 items-center justify-center">
@@ -87,84 +77,77 @@ export function Services() {
         </Link>
       ),
     });
-    console.log(data.serviceAds)
-    console.log(data.serviceCreate)
-    console.log(data.serviceSite)
+    console.log(data.servicesAds)
+    // console.log(data.servicesCreate)
+    // console.log(data.servicesSite)
 
   }
 
 
   return (
     <>
-        <div className='hidden md:flex'>
-          <h1>Hello Word</h1>
-        </div>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="md:hidden flex flex-col space-y-4" >
+      <div className='hidden md:flex'>
+        <h1>Hello Word</h1>
+      </div>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="md:hidden flex flex-col space-y-4" >
             <FormField
-              control={form.control}
-              name="serviceAds"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormControl>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      className={cn(
-                        "w-full justify-between bg-gradient-to-r from-purple-400 to-purple-600 border-none text-white hover:text-purple-200",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value
-                        ? servicesCreate.find(
-                          (create) => create.value === field.value
-                        )?.label
-                        : <div className="flex gap-2 text-white items-center">
-                          <Megaphone   />
-                          Anuncio
-                        </div>}
-                      <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
-                  </FormControl>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-[300px] p-0 ">
-                      <Command className="text-purple-500">
-                        <CommandInput
-                          placeholder="Pesquise um serviço..."
-                          className="h-9"
-                        />
-                        <CommandEmpty>Nenhum serviço encontrado</CommandEmpty>
-                        <CommandGroup>
-                          {servicesAds.map((ads) => (
-                            <CommandItem
-                              value={ads.label}
-                              key={ads.value}
-                              className="hover:bg-purple-300  justify-center"
-                            >
-                              <div className="flex items-center justify-center gap-2">
-                                <CheckIcon
-                                  className={cn(
-                                    "ml-auto h-4 w-4",
-                                    ads.value === field.value
-                                      ? "opacity-100"
-                                      : "opacity-0"
-                                  )}
-                                />
-                                {ads.label}
-                              </div>
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </Command>
-                    </PopoverContent>
-                  </Popover>
-                </FormItem>
-              )}
-            />
+            control={form.control}
+            name="servicesAds"
+            render={() => (
+              <FormItem>
+                {servicesAds.map((item) => (
+                  <FormField
+                    key={item.label}
+                    control={form.control}
+                    name="servicesAds"
+                    render={({ field }) => {
+                      return (
+                        <FormItem
+                          key={item.label}
+                          className="flex flex-row items-start space-x-3 space-y-0"
+                        >
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value?.includes(item.label)}
+                              onCheckedChange={(checked) => {
+                                return checked
+                                  ? 
+                                  field.onChange(
+                                    [...field.value, item.label],
+                                    setActive(true),
+                                  )
+                                  : 
+                                  field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== item.label
+                                    )
+                                  ) 
+                              }}
+                            />
+                          </FormControl>
+                          <FormLabel className="text-sm font-normal">
+                            {item.label}
+                          </FormLabel>
+                        </FormItem>
+                      )
+                    }}
+                  />
+                ))}
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-            {/* <FormField
+
+
+
+
+
+
+
+
+          {/* <FormField
               control={form.control}
               name="serviceCreate"
               render={({ field }) => (
@@ -293,9 +276,9 @@ export function Services() {
                 </FormItem>
               )}
             /> */}
-            <Button type="submit" disabled={!active} className="bg-green-600 hover:bg-green-400 w-full p-4">Enviar</Button >
-          </form >
-        </Form >
+          <Button type="submit" disabled={!active} className="bg-green-600 hover:bg-green-400 w-full p-4">Enviar</Button >
+        </form >
+      </Form >
       <InfoDialog open={open} setOpen={setOpen} />
     </>
   )
