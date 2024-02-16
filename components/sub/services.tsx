@@ -43,7 +43,7 @@ import { useEffect, useState } from "react"
 import { DialogClose } from "@radix-ui/react-dialog"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
-import { useNavMobileContext } from "@/contexts/nav-mobile-context"
+import { useNavMobileContext } from "@/C/nav-mobile-context"
 // import * as fbq from "@/lib/fbpixel";
 
 
