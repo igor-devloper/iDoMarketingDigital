@@ -1,20 +1,22 @@
 export const servicesAds = [
-  { label: "Shoope Ads", value: "Shoope Ads" },
-  { label: "Google Ads", value: "Google Ads" },
-  { label: "Meta Ads", value: "Meta Ads" }
-] 
+  { id: "shoope Ads", value: "Shoope Ads" },
+  { id: "google Ads", value: "Google Ads" },
+  { id: "meta Ads", value: "Meta Ads" }
+] as const
 
 export const servicesCreate = [
-  { label: "Adobe Ilustrator", value: "Adobe Ilustrator" },
-  { label: "Adobe Photoshpot", value: "Adobe Photoshpot" },
-  { label: "Adobe After Effect", value: "Adobe After Effect" }
-] 
+  { id: "Adobe Ilustrator", value: "Adobe Ilustrator" },
+  { id: "Adobe Photoshpot", value: "Adobe Photoshpot" },
+  { id: "Adobe After Effect", value: "Adobe After Effect" }
+] as const
+
 
 export const servicesSite = [
-  { label: "WordPress", value: "WordPress" },
-  { label: "Hostinger", value: "Hostinger" },
-  { label: "HTML", value: "HTML" }
-] 
+  { id: "WordPress", value: "WordPress" },
+  { id: "Hostinger", value: "Hostinger" },
+  { id: "HTML", value: "HTML" }
+] as const
+
   
   
   

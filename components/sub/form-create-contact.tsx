@@ -72,8 +72,8 @@ export function FormCreateContact() {
             </video>
           </div>
         </motion.div>
-        <DrawerContent className="bg-black flex items-center justify-center m-auto">
-          <motion.div className="mx-auto w-full max-w-md">
+        <DrawerContent className="bg-black flex h-[500px] justify-center m-auto md:h-[400px] md:p-2">
+          <motion.div className="mx-auto w-full ">
             <DrawerHeader className="text-white leading-10 items-center justify-center">
               <DrawerTitle>BRIEFING (formulario)</DrawerTitle>
               <DrawerDescription>Descubra nossos serviços e elecione o serviço desejado</DrawerDescription>

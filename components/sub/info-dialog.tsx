@@ -25,17 +25,9 @@ export function InfoDialog(props: DialogProps) {
   function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
     //  fbq.event("contact", {user: 'novo usuario'})
      toast({
-      variant: 'sucesso',
+      variant: 'default',
       title: "Sucesso🎉✔",
-      description: `Olá ${data.name}, vamos entrar em contato com você em breve`,
-      action: (
-        <Link href='https://api.whatsapp.com/send/?phone=5511932466384&text&type=phone_number&app_absent=0' className="w-full p-2 rounded-md border-spacing-1 bg-white" target="_blank">
-          <ToastAction altText="Instagram" className="flex gap-2 items-center justify-center">
-            <Send className="w-3 h-3" />
-            <p className="text-xs">Qualque duvida</p>
-          </ToastAction>
-        </Link>
-      ),
+      description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
     alert(`Olá ${data.name} em breve entraremos em contato com você atraves do numero informado, senão já entramos haha 🎉💪🤞`)
     props.setOpen(false)
