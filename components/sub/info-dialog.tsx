@@ -10,6 +10,8 @@ import Link from "next/link";
 import { Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+// import * as fbq from "@/lib/fbpixel";
+
 
 interface DialogProps {
   open: boolean,
@@ -18,8 +20,10 @@ interface DialogProps {
 
 export function InfoDialog(props: DialogProps) {
   
+  
+
   function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    // await setOpen(false)
+    //  fbq.event("contact", {user: 'novo usuario'})
      toast({
       variant: 'sucesso',
       title: "Sucesso🎉✔",
@@ -64,7 +68,7 @@ export function InfoDialog(props: DialogProps) {
               </Label>
               <Input id="number" type="tel" className="col-span-3" {...register('number')} placeholder="(**) 9****-****" />
             </div>
-            <Button type="submit" className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
+            <Button type="submit"  className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
           </div>
         </form>
       </DialogContent>

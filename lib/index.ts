@@ -5,15 +5,15 @@ export const servicesAds = [
 ] 
 
 export const servicesCreate = [
-  { label: "Teste", value: "Teste" },
-  { label: "Teste", value: "Teste" },
-  { label: "Teste", value: "Teste" }
+  { label: "Adobe Ilustrator", value: "Adobe Ilustrator" },
+  { label: "Adobe Photoshpot", value: "Adobe Photoshpot" },
+  { label: "Adobe After Effect", value: "Adobe After Effect" }
 ] 
 
 export const servicesSite = [
-  { label: "TesteSite", value: "TesteSite" },
-  { label: "TesteSite", value: "TesteSite" },
-  { label: "TesteSite", value: "TesteSite" }
+  { label: "WordPress", value: "WordPress" },
+  { label: "Hostinger", value: "Hostinger" },
+  { label: "HTML", value: "HTML" }
 ] 
   
   

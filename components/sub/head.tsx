@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { toast } from "sonner"
 import Image from "next/image";
@@ -40,15 +38,15 @@ export const Head = () => {
             />
           </motion.div>
         </motion.div>
-        <div className="flex items-center justify-center gap-3 max-h-[243px] transition-transform ease-in delay-1000 animate-hover overflow-hidden">
-          <div className="absolute mb-[600px] ml-[230px] md:ml-[330px] ">
-            <p className="text-white text-xs animate-typing1 w-[21ch] overflow-hidden">clique em  <span className="p-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-md">começar</span> e</p>
+        <div className="flex items-center justify-center gap-3 max-h-[233px] transition-transform ease-in delay-1000 animate-hover overflow-hidden">
+          <div className="absolute mb-[600px] ml-[270px] md:ml-[310px] ">
+            <p className="text-white text-xs animate-typing1 w-[21ch] overflow-hidden">clique em  <span className="p-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg">começar</span> e</p>
             <p className="text-white text-xs animate-typing2 w-[19ch] overflow-hidden">selecione de acordo</p> 
             <p className="text-white text-xs animate-typing3 w-[21ch] overflow-hidden">com a nescessidade da</p>
             <p className="text-white text-xs animate-typing4 w-[12ch] overflow-hidden border-r-2">sua empresa</p>
           </div>
-          <div className="absolute mb-[600px] ml-[230px] md:ml-[330px]">
-            <MessageCircle size={48} color="#fff" strokeWidth={0.5} width={250} height={250} className="" />
+          <div className="absolute mb-[600px] ml-[270px] md:ml-[310px]">
+            <MessageCircle size={48} color="#fff" strokeWidth={0.5} width={230} height={230} className="" />
           </div>
         </div>
         <motion.div>

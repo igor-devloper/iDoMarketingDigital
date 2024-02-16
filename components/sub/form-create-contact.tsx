@@ -1,5 +1,3 @@
-"use client";
-
 import {
   slideInFromRight,
 } from "@/lib/motion";
@@ -22,7 +20,7 @@ import { ArrowDown, Instagram } from "lucide-react"
 import Link from "next/link";
 import { useForm } from 'react-hook-form'
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose } from "../ui/drawer";
-import { Services } from "./servicesResp";
+import { Services } from "./services";
 import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from "react";
@@ -60,23 +58,21 @@ export function FormCreateContact() {
       <motion.div className="">
         <motion.div variants={slideInFromRight(7)} className="flex flex-col items-center justify-center">
           <DrawerTrigger asChild>
-            {/* <Button className="w-[200px] uppercase hover:animate-moveInBottom transition-transform text-md py-6 mt-6 items-center hover:animate- trasintion ease-in-out delay-1000 bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
+            <Button className="w-[200px] uppercase hover:shadow-lg hover:translate-x-1 hover:translate-y-1 transition-all hover:shadow-purple-600 text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
               começar
-            </Button> */}
-            <a href="#_" className="relative inline-flex items-center justify-center p-4 px-5 py-3 w-[200px] uppercase overflow-hidden font-medium text-indigo-600 rounded-lg shadow-2xl group">
-              <span className="absolute top-0 left-0 w-40 h-40 -mt-10 -ml-3 transition-all duration-700 bg-red-500 rounded-full blur-md ease"></span>
-              <span className="absolute inset-0 w-full h-full transition duration-700 group-hover:rotate-180 ease">
-                <span className="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
-                <span className="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
-              </span>
-              <span className="relative text-white">começar</span>
-            </a>
+            </Button>
+
           </DrawerTrigger>
-          <div className="animate-bounce p-4 mt-32  rounded-full border items-center border-gray-500 bg-gray-800 hover:text-gradient-to-r hover:from-purple-400   hover:to-purple-600">
+          <div className="animate-bounce mb-4 p-4 mt-32  rounded-full border items-center border-gray-500 bg-gray-800 hover:text-gradient-to-r hover:from-purple-400   hover:to-purple-600">
             <ArrowDown className="w-6 h-6 text-purple-500 " />
           </div>
+          <div className="flex justify-between items-center gap-5 bg-purple-400 rounded-md shadow-xl shadow-purple-700 overflow-hidden">
+            <video preload="none" autoPlay loop muted className="md:w-[500px] md:h-[500px] ">
+              <source src="/mkt.mp4" type="video/mp4" />
+            </video>
+          </div>
         </motion.div>
-        <DrawerContent className="bg-black">
+        <DrawerContent className="bg-black flex items-center justify-center m-auto">
           <motion.div className="mx-auto w-full max-w-md">
             <DrawerHeader className="text-white leading-10 items-center justify-center">
               <DrawerTitle>BRIEFING (formulario)</DrawerTitle>
@@ -92,10 +88,6 @@ export function FormCreateContact() {
               </motion.div>,
             </motion.div>
             <DrawerFooter>
-              <DrawerClose asChild>
-                <Button
-                  variant="outline">Cancel</Button>
-              </DrawerClose>
             </DrawerFooter>
           </motion.div>
         </DrawerContent>
