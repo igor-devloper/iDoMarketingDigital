@@ -72,19 +72,15 @@ export function FormCreateContact() {
             </video>
           </div>
         </motion.div>
-        <DrawerContent className="bg-black flex h-[500px] justify-center m-auto md:h-[400px] md:p-2">
+        <DrawerContent className="bg-black flex h-full justify-center m-auto md:h-[500px] md:p-2">
           <motion.div className="mx-auto w-full ">
-            <DrawerHeader className="text-white leading-10 items-center justify-center">
+            <DrawerHeader className="text-white leading-10 m-auto top-0 items-center justify-center">
               <DrawerTitle>BRIEFING (formulario)</DrawerTitle>
               <DrawerDescription>Descubra nossos serviços e elecione o serviço desejado</DrawerDescription>
             </DrawerHeader>
-            <motion.div className="pb-0">
-              <motion.div className="flex items-center justify-center space-x-2">
-
-              </motion.div>
-              <motion.div className="mt-3 h-[130px] text-white flex flex-col gap-2 m-14">
+            <motion.div className="pb-0 w-full gap-2">
+              <motion.div className="md:h-auto h-full text-white flex flex-col md:w-full md:items-center md:justify-center">
                 <Services />
-
               </motion.div>,
             </motion.div>
             <DrawerFooter>

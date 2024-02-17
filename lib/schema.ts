@@ -8,12 +8,12 @@ export const ServiceSchema = z.object({
     }),
 
   servicesCreate: z.array(z.string().transform(String)).refine((value) => value.some((item) => item),{
-    message: "Você deve selecionar pelo menos um item",
+    message: "✖",
   }),
 
   servicesSite: z.array(z.string())
     .refine((value) => value.some((item) => item), {
-      message: '✖',
+      message: "Você deve selecionar pelo menos um item",
     })
 })
 

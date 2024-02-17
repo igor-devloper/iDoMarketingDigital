@@ -28,7 +28,9 @@ import ProjectCard from "./project-card"
 
 export function Services() {
   const [active, setActive] = useState(false)
-  const [Visible, setVisible] = useState(false)
+  const [color1, setColor1] = useState('')
+  const [color2, setColor2] = useState(false)
+  const [color3, setColor3] = useState(false)
   const [open, setOpen] = useState(false)
   const form = useForm<z.infer<typeof ServiceSchema>>({
     resolver: zodResolver(ServiceSchema),
@@ -45,23 +47,137 @@ export function Services() {
       variant: 'default',
       title: "Sucesso🎉✔",
       description: `${data.servicesSite} ${data.servicesAds} ${data.servicesCreate}. Esses foram o serviços selecionados`,
-  
+
     });
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
+    console.log(color1)
+    console.log(color2)
+    console.log(color3)
 
   }
 
-
   return (
     <>
-      <div className='hidden md:flex'>
-        <ProjectCard description="Metea Ads é uma plataforma de anuncios patrocinados" src="/Meta.png" title="Meta Ads"/>
-      </div>
+
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="md:hidden flex flex-col space-y-6" >
-          <div className="flex gap-10 justify-center">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 md:items-center md:justify-center md:flex md:m-auto md:w-full md:gap-4" >
+          <div className='hidden md:flex gap-4'>
+            <FormField
+              control={form.control}
+              name="servicesAds"
+              render={() => (
+                <FormItem>
+                  {servicesAds.map((item) => (
+                    <FormField
+                      key={item.id}
+                      control={form.control}
+                      name="servicesAds"
+                      render={({ field }) => {
+                        return (
+                          <div className="inline-flex items-center justify-center gap-4">
+                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesAds" title={item.value}>
+
+                              <Checkbox
+                                checked={field.value?.includes(item.id)}
+                                onCheckedChange={(checked: any) => {
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1('purple')) : field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== item.id
+                                    )
+                                  )
+                                }}
+                              />
+                            </ProjectCard>
+                          </div>
+                        )
+                      }}
+                    />
+                  ))}
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="servicesCreate"
+              render={() => (
+                <FormItem>
+                  {servicesCreate.map((item) => (
+                    <FormField
+                      key={item.id}
+                      control={form.control}
+                      name="servicesCreate"
+                      render={({ field }) => {
+                        return (
+                          <div className="inline-flex items-center justify-center gap-2">
+                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesCreate" title={item.value}>
+
+                              <Checkbox
+                                checked={field.value?.includes(item.id)}
+                                onCheckedChange={(checked: any) => {
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor2(true)) : field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== item.id
+                                    )
+                                  )
+                                }}
+                              />
+                            </ProjectCard>
+                          </div>
+                        )
+                      }}
+                    />
+                  ))}
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="servicesSite"
+              render={() => (
+                <FormItem>
+                  {servicesSite.map((item) => (
+                    <FormField
+                      key={item.id}
+                      control={form.control}
+                      name="servicesSite"
+                      render={({ field }) => {
+                        return (
+                          <div className="inline-flex items-center justify-center gap-4 space-x-4">
+                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesSite" title={item.value}>
+
+                              <Checkbox
+                                checked={field.value?.includes(item.id)}
+                                onCheckedChange={(checked: any) => {
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor3(true)) : field.onChange(
+                                    field.value?.filter(
+                                      (value) => value !== item.id
+                                    )
+                                  )
+                                }}
+                              />
+                            </ProjectCard>
+                          </div>
+                        )
+                      }}
+                    />
+                  ))}
+                </FormItem>
+              )}
+            />
+
+          </div>
+
+
+
+
+
+
+
+          <div className="flex flex-col items-center space-y-4 justify-center md:hidden">
             <FormField
               control={form.control}
               name="servicesAds"
@@ -88,7 +204,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1('purple')) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -129,13 +245,14 @@ export function Services() {
                         return (
                           <FormItem
                             key={item.id}
-                            className="flex flex-row items-start space-x-3 space-y-0"
+                            className="flex flex-row items-start gap-2 justify-start space-y-0"
                           >
                             <FormControl>
                               <Checkbox
+                                className="data-[state=checked]:bg-cyan-500"
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor2(true)) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -151,7 +268,6 @@ export function Services() {
                       }}
                     />
                   ))}
-                  <FormMessage className="w-auto"/>
                 </FormItem>
               )}
             />
@@ -182,9 +298,10 @@ export function Services() {
                           >
                             <FormControl>
                               <Checkbox
+                                className="data-[state=checked]:bg-orange-500"
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor3(true)) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -205,8 +322,15 @@ export function Services() {
             />
 
 
+
           </div>
-          <Button type="submit" disabled={!active} className="bg-green-600 hover:bg-green-400 w-full p-4">Enviar</Button >
+          <Button
+            type="submit"
+            disabled={!active}
+            className={active ? `bg-gradient-to-r absolute bottom-4 w-[400px] from-${color1}-500 ${color2 ? 'via-cyan-500' : ''} ${color3 ? 'to-orange-500 ' : ''} transition-all p-4` : "bg-green-600 hover:bg-green-400 absolute bottom-4 w-[400px]   mb-2 p-4"}
+          >
+            Enviar
+          </Button >
         </form >
       </Form >
       <InfoDialog open={open} setOpen={setOpen} />
