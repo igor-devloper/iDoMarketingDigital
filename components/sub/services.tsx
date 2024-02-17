@@ -28,7 +28,7 @@ import {ProjectCard} from "./project-card"
 
 export function Services() {
   const [active, setActive] = useState(false)
-  const [color1, setColor1] = useState('')
+  const [color1, setColor1] = useState(false)
   const [color2, setColor2] = useState(false)
   const [color3, setColor3] = useState(false)
   const [open, setOpen] = useState(false)
@@ -82,7 +82,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1('purple')) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1(true)) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -204,7 +204,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1('purple')) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1(true)) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -327,7 +327,7 @@ export function Services() {
           <Button
             type="submit"
             disabled={!active}
-            className={active ? `bg-gradient-to-r absolute bottom-4 w-[400px] from-${color1}-500 ${color2 ? 'via-cyan-500' : ''} ${color3 ? 'to-orange-500 ' : ''} transition-all p-4` : "bg-green-600 hover:bg-green-400 absolute bottom-4 w-[400px]   mb-2 p-4"}
+            className={active ? `absolute bottom-4 w-[400px] bg-gradient-to-r ${color1 ? 'from-purple-500' : ''} ${color2 ? 'via-cyan-500' : ''} ${color3 ? 'to-orange-500 ' : ''} transition-all p-4` : "bg-green-600 hover:bg-green-400 absolute bottom-4 w-[400px] mb-2 p-4"}
           >
             Enviar
           </Button >

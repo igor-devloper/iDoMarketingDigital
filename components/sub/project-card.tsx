@@ -18,7 +18,7 @@ interface Props {
 
 export function ProjectCard({ src, title, description, color, name, children }: Props ){
   return (
-    <div className={`relative overflow-hidden gap-4 rounded-lg border border-${color}-500 shadow-lg shadow-${color}-500 w-[130px] m-auto h-[171px] justify-center items-center gap-2`}>
+    <div className={`relative overflow-hidden gap-4 rounded-lg border  border-${color}-500 shadow-lg shadow-${color}-500 w-[130px] m-auto h-[171px] justify-center items-center gap-2`}>
       <p className="m-2">{children}</p>
       <Image
         src={src}
