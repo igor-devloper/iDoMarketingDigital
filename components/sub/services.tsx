@@ -19,7 +19,7 @@ import { servicesAds, servicesCreate, servicesSite } from "@/lib"
 import { useState } from "react"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
-import ProjectCard from "./project-card"
+import {ProjectCard} from "./project-card"
 
 
 
