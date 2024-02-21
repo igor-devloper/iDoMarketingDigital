@@ -2,7 +2,6 @@
 
 import Hero from '../components/main/hero';
 import { Head } from 'next/document';
-// import { FacebookPixel } from '@/lib/faceboo-pixel';
 
 
 

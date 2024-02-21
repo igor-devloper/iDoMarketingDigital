@@ -1,11 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { FormControl, FormField, FormItem } from "../ui/form";
-import { Checkbox } from "../ui/checkbox";
-import { useForm } from "react-hook-form";
-import z from 'zod'
-import { ServiceSchema } from "@/lib/schema";
-import { zodResolver } from "@hookform/resolvers/zod";
+
 
 interface Props {
   id?: string;

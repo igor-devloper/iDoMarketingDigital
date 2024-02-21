@@ -1,7 +1,6 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import ReactPixel from 'react-facebook-pixel';
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
@@ -43,9 +42,6 @@ export function Services() {
   })
 
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
-    ReactPixel.track('Serviços', data.servicesAds)
-    ReactPixel.track('Serviços', data.servicesCreate)
-    ReactPixel.track('Serviços', data.servicesSite)
     await setOpen(true)
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
