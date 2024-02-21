@@ -8,6 +8,7 @@ import { ServiceSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 interface Props {
+  id?: string;
   src: string;
   title: string;
   description: string;
@@ -16,9 +17,9 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export function ProjectCard({ src, title, description, color, name, children }: Props ){
+export function ProjectCard({id,  src, title, description, color, name, children }: Props ){
   return (
-    <div className={`relative overflow-hidden gap-4 rounded-lg border  border-${color}-500 shadow-lg shadow-${color}-500 w-[130px] m-auto h-[171px] justify-center items-center gap-2`}>
+    <label htmlFor={id} className={`relative overflow-hidden group gap-4 rounded-lg border  border-${color}-500 shadow-lg shadow-${color}-500 w-[130px] m-auto h-[171px] justify-center items-center gap-2`}>
       <p className="m-2">{children}</p>
       <Image
         src={src}
@@ -32,7 +33,7 @@ export function ProjectCard({ src, title, description, color, name, children }: 
         <h1 className="text-xs font-semibold text-white">{title}</h1>
         <p className="text-xs  text-gray-400">{description}</p>
       </div>
-    </div>
+    </label>
   );
 };
 

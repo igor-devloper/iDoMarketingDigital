@@ -1,6 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
+import ReactPixel from 'react-facebook-pixel';
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
@@ -19,7 +20,7 @@ import { servicesAds, servicesCreate, servicesSite } from "@/lib"
 import { useState } from "react"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
-import {ProjectCard} from "./project-card"
+import { ProjectCard } from "./project-card"
 
 
 
@@ -42,20 +43,13 @@ export function Services() {
   })
 
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
+    ReactPixel.track('Serviços', data.servicesAds)
+    ReactPixel.track('Serviços', data.servicesCreate)
+    ReactPixel.track('Serviços', data.servicesSite)
     await setOpen(true)
-    await toast({
-      variant: 'default',
-      title: "Sucesso🎉✔",
-      description: `${data.servicesSite} ${data.servicesAds} ${data.servicesCreate}. Esses foram o serviços selecionados`,
-
-    });
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
-    console.log(color1)
-    console.log(color2)
-    console.log(color3)
-
   }
 
   return (
@@ -77,7 +71,7 @@ export function Services() {
                       render={({ field }) => {
                         return (
                           <div className="inline-flex items-center justify-center gap-4">
-                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesAds" title={item.value}>
+                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesAds" title={item.value} id={item.id}>
 
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
@@ -202,6 +196,7 @@ export function Services() {
                           >
                             <FormControl>
                               <Checkbox
+                                id={item.id}
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
                                   return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1(true)) : field.onChange(
@@ -212,7 +207,7 @@ export function Services() {
                                 }}
                               />
                             </FormControl>
-                            <FormLabel className="text-sm font-normal">
+                            <FormLabel className="text-sm font-normal" htmlFor={item.id} >
                               {item.value}
                             </FormLabel>
                           </FormItem>
@@ -328,7 +323,9 @@ export function Services() {
             type="submit"
             disabled={!active}
             className={active ? `absolute bottom-4 w-[400px] bg-gradient-to-r ${color1 ? 'from-purple-500' : ''} ${color2 ? 'via-cyan-500' : ''} ${color3 ? 'to-orange-500 ' : ''} transition-all p-4` : "bg-green-600 hover:bg-green-400 absolute bottom-4 w-[400px] mb-2 p-4"}
+
           >
+
             Enviar
           </Button >
         </form >
