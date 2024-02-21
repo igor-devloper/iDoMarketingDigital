@@ -1,28 +1,11 @@
 "use client"
 
-import Script from 'next/script';
 import Hero from '../components/main/hero';
-import { Router, useRouter } from 'next/router'
-import { useEffect } from 'react';
 import { Head } from 'next/document';
-// import * as fbq from "@/lib/fbpixel";
+import { FacebookPixel } from '@/components/faceboo-pixel';
 
 
-export function FacebookPixel() {
-  useEffect(() => {
-    import("react-facebook-pixel")
-      .then((x) => x.default)
-      .then((ReactPixel) => {
-        ReactPixel.init(process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID!);
-        ReactPixel.pageView();
 
-        Router.events.on("routeChangeComplete", () => {
-          ReactPixel.pageView();
-        });
-      });
-  });
-  return null;
-}
 
 
 
