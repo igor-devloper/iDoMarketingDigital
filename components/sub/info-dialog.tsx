@@ -20,8 +20,10 @@ export function InfoDialog(props: DialogProps) {
   
   
 
-  function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    track('Serviços', { location: 'Services' });
+  async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
+    await track('Serviços', { 
+      message: data.name
+    });
      toast({
       variant: 'default',
       title: "Sucesso🎉✔",
