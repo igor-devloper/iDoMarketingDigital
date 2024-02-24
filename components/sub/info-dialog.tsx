@@ -21,7 +21,9 @@ export function InfoDialog(props: DialogProps) {
   
 
   async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    await track('Cadastro de Informações');
+    await track('Info', {
+      message: `${data.name},${data.number}`
+    })
      toast({
       variant: 'default',
       title: "Sucesso🎉✔",
