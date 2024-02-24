@@ -21,8 +21,8 @@ export function InfoDialog(props: DialogProps) {
   
 
   async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    await track('Serviços', { 
-      message: data.name
+    await track('Services', {
+      message: `${data.name} realizou o briefing no site, ele entrou em contato pelo numero ${data.number}`
     });
      toast({
       variant: 'default',

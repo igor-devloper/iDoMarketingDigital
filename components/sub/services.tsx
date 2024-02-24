@@ -20,6 +20,7 @@ import { useState } from "react"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
 import { ServiceCard } from "./service-card"
+import { track } from "@vercel/analytics/react"
 
 
 
@@ -43,6 +44,9 @@ export function Services() {
 
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
     await setOpen(true)
+    await track('Services', {
+      message: `os serviços selecionados foram ${data.servicesAds}, ${data.servicesCreate}, ${data.servicesSite}`
+    });
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
