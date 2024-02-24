@@ -12,7 +12,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export function ProjectCard({id,  src, title, description, color, name, children }: Props ){
+export function ServiceCard({id,  src, title, description, color, name, children }: Props ){
   return (
     <label htmlFor={id} className={`relative overflow-hidden group gap-4 rounded-lg border  border-${color}-500 shadow-lg shadow-${color}-500 w-[130px] m-auto h-[171px] justify-center items-center gap-2`}>
       <p className="m-2">{children}</p>

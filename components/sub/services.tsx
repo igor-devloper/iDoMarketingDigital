@@ -19,7 +19,7 @@ import { servicesAds, servicesCreate, servicesSite } from "@/lib"
 import { useState } from "react"
 import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
-import { ProjectCard } from "./project-card"
+import { ServiceCard } from "./service-card"
 
 
 
@@ -67,7 +67,7 @@ export function Services() {
                       render={({ field }) => {
                         return (
                           <div className="inline-flex items-center justify-center gap-4">
-                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesAds" title={item.value} id={item.id}>
+                            <ServiceCard src={item.src} color={item.color} description={item.description} name="servicesAds" title={item.value} id={item.id}>
 
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
@@ -79,7 +79,7 @@ export function Services() {
                                   )
                                 }}
                               />
-                            </ProjectCard>
+                            </ServiceCard>
                           </div>
                         )
                       }}
@@ -102,7 +102,7 @@ export function Services() {
                       render={({ field }) => {
                         return (
                           <div className="inline-flex items-center justify-center gap-2">
-                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesCreate" title={item.value}>
+                            <ServiceCard src={item.src} color={item.color} description={item.description} name="servicesCreate" title={item.value}>
 
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
@@ -114,7 +114,7 @@ export function Services() {
                                   )
                                 }}
                               />
-                            </ProjectCard>
+                            </ServiceCard>
                           </div>
                         )
                       }}
@@ -137,7 +137,7 @@ export function Services() {
                       render={({ field }) => {
                         return (
                           <div className="inline-flex items-center justify-center gap-4 space-x-4">
-                            <ProjectCard src={item.src} color={item.color} description={item.description} name="servicesSite" title={item.value}>
+                            <ServiceCard src={item.src} color={item.color} description={item.description} name="servicesSite" title={item.value}>
 
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
@@ -149,7 +149,7 @@ export function Services() {
                                   )
                                 }}
                               />
-                            </ProjectCard>
+                            </ServiceCard>
                           </div>
                         )
                       }}

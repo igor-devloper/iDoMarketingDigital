@@ -4,13 +4,11 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { toast } from "@/components/ui/use-toast"
-import { ToastAction } from "@radix-ui/react-toast"
 import z from 'zod'
-import Link from "next/link";
-import { Send } from "lucide-react";
+
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import * as fbq from "@/lib/fbpixel";
+import { track } from '@vercel/analytics/server';
 
 
 interface DialogProps {
@@ -23,7 +21,7 @@ export function InfoDialog(props: DialogProps) {
   
 
   function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    //  fbq.event("contact", {user: 'novo usuario'})
+    track('Serviços', { location: 'Services' });
      toast({
       variant: 'default',
       title: "Sucesso🎉✔",
