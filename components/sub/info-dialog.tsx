@@ -24,15 +24,15 @@ export function InfoDialog(props: DialogProps) {
     await track('Info', {
       message: `${data.name},${data.number}`
     })
-     toast({
+    await toast({
       variant: 'default',
       title: "Sucesso🎉✔",
       description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
-    alert(`Olá ${data.name} em breve entraremos em contato com você atraves do numero informado, senão já entramos haha 🎉💪🤞`)
-    props.setOpen(false)
-    console.log(data.name)
-    console.log(data.number)
+    awaitalert(`Olá ${data.name} em breve entraremos em contato com você atraves do numero informado, senão já entramos haha 🎉💪🤞`)
+    await props.setOpen(false)
+    await console.log(data.name)
+    await console.log(data.number)
   }
   const { register, handleSubmit } = useForm<z.infer<typeof InfosSchema>>({
     resolver: zodResolver(InfosSchema),
