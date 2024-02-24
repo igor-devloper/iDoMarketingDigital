@@ -21,7 +21,7 @@ export function InfoDialog(props: DialogProps) {
   
 
   async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    await track('Info', {
+    await track('SignIn', {
       message: `${data.name},${data.number}`
     })
     await toast({
