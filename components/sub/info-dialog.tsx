@@ -26,13 +26,10 @@ export function InfoDialog(props: DialogProps) {
       title: "Sucesso🎉✔",
       description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
-    await alert(`Olá ${data.name} em breve entraremos em contato com você atraves do numero informado, senão já entramos haha 🎉💪🤞`)
-    await track('Briefing', {
+    await track('Info', {
       message: `${data.name} realizou o briefing,com o numero ${data.number}`
     })
     await props.setOpen(false)
-    await console.log(data.name)
-    await console.log(data.number)
   }
   const { register, handleSubmit } = useForm<z.infer<typeof InfosSchema>>({
     resolver: zodResolver(InfosSchema),

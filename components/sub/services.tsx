@@ -44,6 +44,9 @@ export function Services() {
 
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
     await setOpen(true)
+    await track('Briefing', {
+      message: `${data.servicesAds}, ${data.servicesCreate}, ${data.servicesSite}`
+    });
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
