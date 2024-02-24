@@ -25,6 +25,7 @@ import z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from "react";
 import { InfoDialog } from "./info-dialog";
+import { track } from "@vercel/analytics/react";
 
 
 
@@ -58,7 +59,7 @@ export function FormCreateContact() {
       <motion.div className="">
         <motion.div variants={slideInFromRight(7)} className="flex flex-col items-center justify-center">
           <DrawerTrigger asChild>
-            <Button className="w-[200px] uppercase hover:shadow-lg hover:translate-x-1 hover:translate-y-1 transition-all hover:shadow-purple-600 text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
+            <Button onClick={() => {track('OpenDrawer')}} className="w-[200px] uppercase hover:shadow-lg hover:translate-x-1 hover:translate-y-1 transition-all hover:shadow-purple-600 text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
               começar
             </Button>
 
