@@ -17,17 +17,14 @@ interface DialogProps {
 }
 
 export function InfoDialog(props: DialogProps) {
-  
-  
-
-  async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
+  async function onSubmit(data: z.infer<typeof InfosSchema>) {
     await toast({
       variant: 'default',
       title: "Sucesso🎉✔",
       description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
     await track('Info', {
-      message: `${data.name} realizou o briefing,com o numero ${data.number}`
+      message: `${data.name}, ${data.number}`
     })
     await props.setOpen(false)
   }
@@ -43,7 +40,7 @@ export function InfoDialog(props: DialogProps) {
             Ultimas Informações para entrarmos em contato com você
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit(onSubmitDialog)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">

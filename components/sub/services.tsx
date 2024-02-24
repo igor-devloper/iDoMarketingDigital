@@ -41,7 +41,6 @@ export function Services() {
       servicesSite: [""],
     },
   })
-
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
     await setOpen(true)
     await track('Briefing', {
