@@ -44,9 +44,7 @@ export function Services() {
 
   async function onSubmit(data: z.infer<typeof ServiceSchema>) {
     await setOpen(true)
-    await track('Services', {
-      message: `os serviços selecionados foram ${data.servicesAds}, ${data.servicesCreate}, ${data.servicesSite}`
-    });
+    await track('Briefing');
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
