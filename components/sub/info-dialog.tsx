@@ -21,15 +21,15 @@ export function InfoDialog(props: DialogProps) {
   
 
   async function onSubmitDialog(data: z.infer<typeof InfosSchema>) {
-    await track('SignIn', {
-      message: `${data.name},${data.number}`
-    })
     await toast({
       variant: 'default',
       title: "Sucesso🎉✔",
       description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
     await alert(`Olá ${data.name} em breve entraremos em contato com você atraves do numero informado, senão já entramos haha 🎉💪🤞`)
+    await track('Briefing', {
+      message: `${data.name} realizou o briefing,com o numero ${data.number}`
+    })
     await props.setOpen(false)
     await console.log(data.name)
     await console.log(data.number)
