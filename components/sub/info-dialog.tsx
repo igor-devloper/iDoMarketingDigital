@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { toast } from "@/components/ui/use-toast"
-import z from 'zod'
+import z, { number } from 'zod'
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,9 +23,6 @@ export function InfoDialog(props: DialogProps) {
       title: "Sucesso🎉✔",
       description: `Olá ${data.name}, em breve vamos entrar em contato com você em breve`,
     });
-    await track('Info', {
-      message: `${data.name}, ${data.number}`
-    })
     await props.setOpen(false)
   }
   const { register, handleSubmit } = useForm<z.infer<typeof InfosSchema>>({
@@ -54,7 +51,7 @@ export function InfoDialog(props: DialogProps) {
               </Label>
               <Input id="number" type="tel" className="col-span-3" {...register('number')} placeholder="(**) 9****-****" />
             </div>
-            <Button type="submit"  className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
+            <Button onClick={() => {track('Info', {message: `${number}, ${name}`})}} type="submit" className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
           </div>
         </form>
       </DialogContent>
