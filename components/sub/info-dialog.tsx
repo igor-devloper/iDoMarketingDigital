@@ -51,7 +51,7 @@ export function InfoDialog(props: DialogProps) {
               </Label>
               <Input id="number" type="tel" className="col-span-3" {...register('number')} placeholder="(**) 9****-****" />
             </div>
-            <Button onClick={() => {track('Info', {message: `${getValues('name')} realizou o briefing. Esse é seu numero: ${getValues('number')}`})}} type="submit" className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
+            <Button onClick={() => {track('Info')}} type="submit" className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
           </div>
         </form>
       </DialogContent>
