@@ -84,7 +84,7 @@ export function InfoDialog(props: DialogProps) {
               </Label>
               <Input id="number" type="tel" className="col-span-3" {...register('number')} placeholder="(**) 9****-****" onChangeCapture={activeButton} required />
             </div>
-            <Button onClick={() => { track('Info') }} type="submit" disabled={!active} className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
+            <Button type="submit" disabled={!active} className="bg-green-600 hover:bg-green-400 w-full">Confirmar ✔🎉</Button >
           </div>
         </form>
       </DialogContent>
