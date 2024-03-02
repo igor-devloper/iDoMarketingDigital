@@ -9,6 +9,8 @@ import {
   Preview,
   Section,
   Text,
+  Tailwind,
+  Heading
 } from "@react-email/components";
 import * as React from "react";
 
@@ -33,56 +35,37 @@ export const GithubAccessTokenEmail = ({
     <Preview>
       Um novo Briefing foi realizado na iDo
     </Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Text className="flex mx-auto text-center justify-center"><span>👻</span></Text>
-        <Text style={title}>
-          <strong>@Tata</strong>, {name} realizou um briefing no site
-        </Text>
-
-        <Section style={section}>
-          <Text style={text}>
-            Ola <strong>Tata</strong>!
+    <Tailwind>
+      <Body className="bg-white my-auto mx-auto font-sans">
+        <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
+          <Section className="mt-[32px] text-center">
+            <span className="text-2xl">🛎🧳📣</span>
+          </Section>
+          <Heading className="text-black text-[24px] font-sans text-center p-0 mx-0">
+            Oieee <strong>Tataaaa</strong>!
+          </Heading>
+          <Section className="text-center text-md text-gray-400">
+            {name} realizou um briefing no site, entra em contato com ele <span className="text-xl">👇</span>
+          </Section>
+          <Section className="mt-[32px] text-center">
+            <Button className="bg-green-500 font-sans font-bold mx-auto text-center text-white p-4 rounded-md" href={`https://api.whatsapp.com/send?l=pt-BR&phone=55${number}&text=Ol%C3%A1%2C,+vi+que%0AVoc%C3%AA+realizou+um+briefing+no+site+da+iDo+Marketing+Digital.+Como+Posso+lhe+ajudar&fbclid=PAAabd59o93FavSL3byJ1rMjkRXerk4TrHRbpIz7ph8MYmJP7AX5y_rDaEZdo`}>🤳 Contato Do Cliente</Button>
+          </Section>
+          <Text style={links}>
+            <Link style={link} href="https://idomktdigital.vercel.app/">Site</Link> ・{" "}
+            <Link style={link} href="https://linksido-plum.vercel.app/">Links iDo</Link>
           </Text>
-          <Text style={text}>
-            {name} realizou um briefing no site desejando os seguintes serviços: {serviceAds} {serviceCreate} {serviceSite}
+          <Text style={footer}>
+            &copy; iDo Marketing Digital 2024 Inc. All rights reserved
           </Text>
-
-          <Button style={button} href={`https://api.whatsapp.com/send?l=pt-BR&phone=55${number}&text=Ol%C3%A1%2C+olá+,+vi+que.%0AVoc%C3%AA+realizou+um+briefing+no+site+da+iDo+Marketing+Digital+.+Como+Posso+lhe+ajudarF&fbclid=PAAabd59o93FavSL3byJ1rMjkRXerk4TrHRbpIz7ph8MYmJP7AX5y_rDaEZdo`}>Contato Do Cliente</Button>
-        </Section>
-        <Text style={links}>
-          <Link style={link} href="https://idomktdigital.vercel.app/">Site</Link> ・{" "}
-          <Link style={link} href="https://linksido-plum.vercel.app/">Links iDo</Link>
-        </Text>
-
-        <Text style={footer}>
-          &copy; iDo Marketing Digital 2024 Inc. All rights reserved
-        </Text>
-      </Container>
-    </Body>
-  </Html>
+        </Container>
+      </Body>
+    </Tailwind>
+  </Html >
 );
 
 
 export default GithubAccessTokenEmail;
 
-const main = {
-  backgroundColor: "#ffffff",
-  color: "#24292e",
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-};
-
-const container = {
-  maxWidth: "480px",
-  margin: "0 auto",
-  padding: "20px 0 48px",
-};
-
-const title = {
-  fontSize: "24px",
-  lineHeight: 1.25,
-};
 
 const section = {
   padding: "24px",
