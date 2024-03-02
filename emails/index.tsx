@@ -35,13 +35,7 @@ export const GithubAccessTokenEmail = ({
     </Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img
-          src="/Logo iDo.png"
-          width="32"
-          height="32"
-          alt="Logo Ido"
-        />
-
+        <Text className="flex mx-auto text-center justify-center"><span>👻</span></Text>
         <Text style={title}>
           <strong>@Tata</strong>, {name} realizou um briefing no site
         </Text>
@@ -54,7 +48,7 @@ export const GithubAccessTokenEmail = ({
             {name} realizou um briefing no site desejando os seguintes serviços: {serviceAds} {serviceCreate} {serviceSite}
           </Text>
 
-          <Button style={button} href={`https://api.whatsapp.com/send?l=pt-BR&phone=55${number}&text=Ol%C3%A1%2C+vim+pelo+seu+sites.%0AVoc%C3%AA+pode+me+passar+umas+informa%C3%A7%C3%B5es%3F&fbclid=PAAabd59o93FavSL3byJ1rMjkRXerk4TrHRbpIz7ph8MYmJP7AX5y_rDaEZdo`}>Contato Do Cliente</Button>
+          <Button style={button} href={`https://api.whatsapp.com/send?l=pt-BR&phone=55${number}&text=Ol%C3%A1%2C+olá+,+vi+que.%0AVoc%C3%AA+realizou+um+briefing+no+site+da+iDo+Marketing+Digital+.+Como+Posso+lhe+ajudarF&fbclid=PAAabd59o93FavSL3byJ1rMjkRXerk4TrHRbpIz7ph8MYmJP7AX5y_rDaEZdo`}>Contato Do Cliente</Button>
         </Section>
         <Text style={links}>
           <Link style={link} href="https://idomktdigital.vercel.app/">Site</Link> ・{" "}
