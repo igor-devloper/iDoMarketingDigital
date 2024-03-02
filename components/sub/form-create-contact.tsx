@@ -2,64 +2,21 @@ import {
   slideInFromRight,
 } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button"
-import { ToastAction } from "@/components/ui/toast"
-import { useToast } from "@/components/ui/use-toast"
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { ArrowDown, Instagram } from "lucide-react"
-import Link from "next/link";
-import { useForm } from 'react-hook-form'
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react"
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose } from "../ui/drawer";
 import { Services } from "./services";
-import z from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from "react";
-import { InfoDialog } from "./info-dialog";
 import { track } from "@vercel/analytics/react";
 
 
 
-const InfoSchema = z.object({
-  name: z.string({
-    required_error: "Informe seu nome",
-    invalid_type_error: "erro"
-  }),
-  number: z.number({
-    required_error: "Informe ser numero",
-    invalid_type_error: "erro"
-  }).max(11),
-})
-
 export function FormCreateContact() {
-  const { toast } = useToast()
-  const {
-    register,
-    handleSubmit,
-  } = useForm<z.infer<typeof InfoSchema>>({
-    resolver: zodResolver(InfoSchema)
-  })
-
-  function handleSubmitInfos(data: z.infer<typeof InfoSchema>) {
-    console.log(InfoSchema)
-    console.log(data)
-
-  }
   return (
     <Drawer>
       <motion.div className="">
         <motion.div variants={slideInFromRight(7)} className="flex flex-col items-center justify-center">
           <DrawerTrigger asChild>
-            <Button onClick={() => {track('OpenDrawer')}} className="w-[200px] uppercase hover:shadow-lg hover:translate-x-1 hover:translate-y-1 transition-all hover:shadow-purple-600 text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
+            <Button onClick={() => { track('OpenDrawer') }} className="w-[200px] uppercase hover:shadow-lg hover:translate-x-1 hover:translate-y-1 transition-all hover:shadow-purple-600 text-md py-6 mt-6 items-center bg-gradient-to-r from-purple-400   to-purple-600 hover:bg-gradient-to-r hover:from-purple-300   hover:to-purple-500 justify-center text-center text-white cursor-pointer rounded-lg max-w-[400px]">
               começar
             </Button>
 
@@ -84,8 +41,7 @@ export function FormCreateContact() {
                 <Services />
               </motion.div>,
             </motion.div>
-            <DrawerFooter>
-            </DrawerFooter>
+
           </motion.div>
         </DrawerContent>
       </motion.div>

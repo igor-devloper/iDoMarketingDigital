@@ -12,8 +12,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { toast } from "@/components/ui/use-toast"
-import { Blocks, Megaphone, Pencil, Send } from "lucide-react"
+import { Blocks, Megaphone, Pencil } from "lucide-react"
 import { ServiceSchema } from "@/lib/schema"
 import { servicesAds, servicesCreate, servicesSite } from "@/lib"
 import { useState } from "react"
@@ -21,7 +20,7 @@ import { InfoDialog } from "./info-dialog"
 import { Checkbox } from "../ui/checkbox"
 import { ServiceCard } from "./service-card"
 import { track } from "@vercel/analytics/react"
-
+import { DrawerClose } from "../ui/drawer"
 
 
 
@@ -29,9 +28,8 @@ import { track } from "@vercel/analytics/react"
 
 export function Services() {
   const [active, setActive] = useState(false)
-  const [color1, setColor1] = useState(false)
-  const [color2, setColor2] = useState(false)
-  const [color3, setColor3] = useState(false)
+  const [color, setColor] = useState(false)
+  const [infoColor, setInfoColor] = useState<string[]>([])
   const [open, setOpen] = useState(false)
   const form = useForm<z.infer<typeof ServiceSchema>>({
     resolver: zodResolver(ServiceSchema),
@@ -49,13 +47,14 @@ export function Services() {
     console.log(data.servicesAds)
     console.log(data.servicesCreate)
     console.log(data.servicesSite)
+    console.log(infoColor[0], infoColor[1], infoColor[2])
   }
 
   return (
     <>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 md:items-center md:justify-center md:flex md:m-auto md:w-full md:gap-4" >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10 flex-col md:items-center md:justify-center md:flex md:m-auto md:w-full md:gap-4" >
           <div className='hidden md:flex gap-4'>
             <FormField
               control={form.control}
@@ -75,7 +74,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'purple'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -110,7 +109,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor2(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'cyan'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -145,7 +144,7 @@ export function Services() {
                               <Checkbox
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor3(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'orange'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -198,7 +197,7 @@ export function Services() {
                                 id={item.id}
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked: any) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor1(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'purple'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -246,7 +245,7 @@ export function Services() {
                                 className="data-[state=checked]:bg-cyan-500"
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor2(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'cyan'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -295,7 +294,7 @@ export function Services() {
                                 className="data-[state=checked]:bg-orange-500"
                                 checked={field.value?.includes(item.id)}
                                 onCheckedChange={(checked) => {
-                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor3(true)) : field.onChange(
+                                  return checked ? field.onChange([...field.value, item.id], setActive(true), setColor(true), setInfoColor(prevNames => [...prevNames, 'orange'])) : field.onChange(
                                     field.value?.filter(
                                       (value) => value !== item.id
                                     )
@@ -311,6 +310,7 @@ export function Services() {
                       }}
                     />
                   ))}
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -321,15 +321,33 @@ export function Services() {
           <Button
             type="submit"
             disabled={!active}
-            className={active ? `absolute bottom-4 w-[400px] bg-gradient-to-r ${color1 ? 'from-purple-500' : ''} ${color2 ? 'via-cyan-500' : ''} ${color3 ? 'to-orange-500 ' : ''} transition-all p-4` : "bg-green-600 hover:bg-green-400 absolute bottom-4 w-[400px] mb-2 p-4"}
+            className={active ?
+              `m-auto flex items-center justify-center w-[300px] bg-gradient-to-r transition-all p-4
+              ${color ?
+                `${infoColor[0] == 'purple' ? `from-purple-500` : infoColor[0] == 'cyan' ? 'from-cyan-500' : infoColor[0] == 'orange' ? 'from-orange-500' : ''} 
+                ${infoColor[1] == 'purple' ? `via-purple-500` : infoColor[1] == 'cyan' ? 'via-cyan-500' : infoColor[1] == 'orange' ? 'via-orange-500' : ''} 
+                ${infoColor[2] == 'purple' ? `to-purple-500` : infoColor[2] == 'cyan' ? 'to-cyan-500' : infoColor[2] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[3] == 'purple' ? `to-purple-500` : infoColor[3] == 'cyan' ? 'to-cyan-500' : infoColor[3] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[4] == 'purple' ? `to-purple-500` : infoColor[4] == 'cyan' ? 'to-cyan-500' : infoColor[4] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[5] == 'purple' ? `to-purple-500` : infoColor[5] == 'cyan' ? 'to-cyan-500' : infoColor[5] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[6] == 'purple' ? `to-purple-500` : infoColor[6] == 'cyan' ? 'to-cyan-500' : infoColor[6] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[7] == 'purple' ? `to-purple-500` : infoColor[7] == 'cyan' ? 'to-cyan-500' : infoColor[7] == 'orange' ? 'to-orange-500' : ''}
+                ${infoColor[8] == 'purple' ? `to-purple-500` : infoColor[8] == 'cyan' ? 'to-cyan-500' : infoColor[8] == 'orange' ? 'to-orange-500' : ''}
+                
+                
+                `
 
+
+                :
+                ''}`
+              :
+              "bg-green-600 hover:bg-green-400 m-auto w-[300px]  flex items-center justify-center"}
           >
-
             Enviar
           </Button >
-        </form >
+        </form >  
       </Form >
-      <InfoDialog open={open} setOpen={setOpen} />
+      <InfoDialog open={open} setOpen={setOpen}/>
     </>
   )
 }
