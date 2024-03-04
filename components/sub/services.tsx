@@ -161,6 +161,7 @@ export function Services() {
               )}
             />
 
+
           </div>
 
 
@@ -310,11 +311,10 @@ export function Services() {
                       }}
                     />
                   ))}
-                  <FormMessage />
                 </FormItem>
               )}
-            />
 
+            />
 
 
           </div>
@@ -345,9 +345,9 @@ export function Services() {
           >
             Enviar
           </Button >
-        </form >  
+        </form >
       </Form >
-      <InfoDialog open={open} setOpen={setOpen}/>
+      <InfoDialog open={open} setOpen={setOpen} />
     </>
   )
 }
